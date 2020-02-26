@@ -1,5 +1,7 @@
 --ESTRUTURAS DE REPETIÇÃ(LOOP,WHILE-LOOP e FOR-LOOP).
 
+--instrução LOOP.
+
 --Sintaxe básica da instrução LOOP.
 LOOP
 <INSTRUÇÕES>
