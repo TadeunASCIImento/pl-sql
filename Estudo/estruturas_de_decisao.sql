@@ -86,4 +86,66 @@ END IF;
 END IF;
 DBMS_OUTPUT.PUT_LINE('Média final: '||vrl_media);
 END;
-     
+
+
+
+-- ESTRUTURA DE DECISÃO CASE.
+
+--Na ausência da cláusula ELSE e a expressão de teste não
+--corresponda a nenhum dos valores de teste, um erro CASE_NOT_FOUND(ORA-6592) é levantado.
+--Sintaxe básica da estrutura.
+CASE <VARIAVEL> --Variável ou expressão a ser testada.
+WHEN VALOR_1 --Valor para comparação.
+THEN <INSTRUÇÕES>
+WHEN VALOR_2
+THEN <INSTRUÇÕSES>
+...
+WHEN VALOR_N
+THEN <INSTRUÇÕES>
+ELSE --Opcional
+    <INSTRUÇÕES>
+END CASE;
+
+--Exemplos de utilização da estrutura CASE.
+
+--Exemplo_1
+DECLARE
+vrl_sigla VARCHAR2(10):='CC';
+vrl_curso VARCHAR2(30);
+BEGIN
+CASE vrl_sigla
+WHEN 'SI' THEN
+vrl_curso := 'SISTEMAS DA INFORMÇÃO';
+WHEN 'CC' THEN
+vrl_curso := 'CIÊNCIA DA COMPUTAÇÃO';
+WHEN 'TADS' THEN
+vrl_curso := 'TECNOLOGIA EM ANÁLISE E DESENVOLVIMENTO DE SISTEMAS';
+WHEN 'TBD' THEN
+vrl_curso := 'TECNOLOGIA EM BANCO DE DADOS';
+WHEN 'TGTI' THEN
+vrl_curso := 'TECNOLOGIA EM GESTÃO DE TECNOLOGIA DA INFORMAÇÃO';
+WHEN 'TRC' THEN
+vrl_curso := 'TECNOLOGIA EM REDES DE COMPUTADORES';
+WHEN 'TSEG' THEN
+vrl_curso := 'TECNOLOGIA EM SEGURANÇA DA INFORMAÇÃO';
+WHEN 'TSIN' THEN
+vrl_curso := 'TECNOLOGIA EM SISTEMAS PARA INTERNET';
+ELSE
+vrl_curso := 'CURSO DESCONHECIDO';
+END CASE;
+DBMS_OUTPUT.PUT_LINE(vrl_sigla || ' – ' || vrl_curso);
+END;
+
+--Exemplo_2
+DECLARE
+vrl_numero NUMBER(2) := 26;
+BEGIN
+CASE
+WHEN (MOD(vrl_numero,2) = 0)THEN
+DBMS_OUTPUT.PUT_LINE('O número '||vrl_numero||' é Par.');
+WHEN (MOD(vrl_numero,2) <> 0)THEN
+DBMS_OUTPUT.PUT_LINE('O número '||vrl_numero||' é Impar.');
+ELSE
+DBMS_OUTPUT.PUT_LINE('Número inválido, não é um número inteiro');
+END CASE;
+END;
