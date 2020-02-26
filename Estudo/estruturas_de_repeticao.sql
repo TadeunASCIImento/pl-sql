@@ -31,3 +31,24 @@ END LOOP;
 DBMS_OUTPUT.PUT_LINE('Quantidade de números pares: '||vrl_qtd_par);
 DBMS_OUTPUT.PUT_LINE('Quantidade de números impares: '||vrl_qtd_impar);
 END;
+
+
+--Instrução WHILE-LOOP.
+
+--Sintaxe básica da instrução WHILE-LOOP
+WHILE <CONDIÇÃO> LOOP
+    <INSTRUÇÕES>
+END LOOP;
+
+--Exemplo de utilização da instrução WHILE-LOOP.
+--Exemplo_1.
+--Exibir uma contagem de 1 á 100.
+SET SERVEROUTPUT ON
+DECLARE
+vrl_contador NUMBER(3) := 1;
+BEGIN
+WHILE vrl_contador <= 100 LOOP
+DBMS_OUTPUT.PUT_LINE(vrl_contador);
+vrl_contador := vrl_contador+1;
+END LOOP;
+END;
