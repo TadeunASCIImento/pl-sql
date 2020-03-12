@@ -11,13 +11,26 @@ EXCEPTION
 END;
 --Indica o fim do programa.
 
---Exemplo de programa PL/SQL
+--Exemplo_1 de programa PL/SQL
 SET SERVEROUTPUT ON
 DECLARE
 V_MENSAGEM VARCHAR(50):='Olá Mundo PL/SQL';
 BEGIN
 DBMS_OUTPUT.PUT_LINE(V_MENSAGEM);
 END;
+
+--Exemplo_2 de programa PL/SQL
+SET SERVEROUTPUT ON
+DECLARE
+soma NUMBER;
+BEGIN
+soma :=34+67;
+dbms_output.put_line('Soma: '||soma);
+EXCEPTION
+WHEN OTHERS THEN
+RAISE_APPLICATION_ERROR(-20001,'Erro ao realizar a soma');
+END;
+
 
 --Exemplo de blocos aninhados.
 DECLARE
@@ -79,4 +92,4 @@ END NOME_TRIGGER
 --A instrução SELECT recupera os dados do banco para as variáveis
 --PL/SQL. A sintaxe básica para isso é apresentada a seguir:
 SELECT NOME_DA_COLUNA INTO NOME_DA_VARIAVEL
-FROM NOME_DA_TABELA WHERE ...; 
+FROM NOME_DA_TABELA WHERE ...;
