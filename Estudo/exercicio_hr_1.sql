@@ -34,7 +34,7 @@ END LOOP;
 --
 CLOSE CRS_1;
 --
--- Trata erros
+-- Trata os possíveis erros
 EXCEPTION
 WHEN OTHERS THEN
 DBMS_OUTPUT.PUT_LINE('ERRO: '||SQLERRM);
