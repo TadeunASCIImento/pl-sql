@@ -26,3 +26,31 @@ VARIAVEL_NOME cliente.nome_cliente%TYPE;
 
 --Herdando o tipo de uma linha inteira de uma tabela.
 VARIAVEL_CLIENTE CLIENTE%ROWTYPE;
+
+-- VARIÁVEIS BIND
+
+-- Declara uma variável
+VARIABLE MENSAGEM VARCHAR2(200);
+-- Usando a variável declarada anteriormente
+SET AUTOPRINT ON
+SET SERVEROUTPUT ON
+BEGIN
+:MENSAGEM :='Aprendendo PL/SQL';
+END;
+/
+-- Imprime o conteúdo da variável
+PRINT MENSAGEM;
+-- Mostra todas as variáveis na sessão corrente
+VAR;
+
+
+-- VARIÁVEIS DE SUBSTITUIÇÃO
+
+-- Declara uma variável de substituição
+DEFINE MATRICULA_EMPREGADO = '7370';
+
+-- Mostra o valor da variável
+DEFINE MATRICULA_EMPREGADO;
+
+-- Exclui definição da variável
+UNDEFINE MATRICULA_EMPREGADO;
