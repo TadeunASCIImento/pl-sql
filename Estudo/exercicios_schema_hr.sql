@@ -1,6 +1,6 @@
 
 
--- Exercício utilizando o usuário HR do banco Oracle.
+-- Exercício utilizando o SCHEMA HR do banco Oracle.
 
 SET SERVEROUTPUT ON
 --
