@@ -69,3 +69,23 @@ END IF;
 COMMIT;
 END;
 /
+
+-- Passando uma variável para o cursor.
+--
+SET SERVEROUTPUT ON
+DECLARE
+CURSOR CRS_ALUNOS(VAR_RA NUMBER) IS
+        SELECT MATRICULA,NOME FROM ALUNOS WHERE MATRICULA = VAR_RA
+        FOR UPDATE OF NOME NOWAIT;
+                VRL_ALUNO CRS_ALUNOS%ROWTYPE;
+            BEGIN
+                OPEN CRS_ALUNOS(&CODIGO);
+                LOOP
+                FETCH CRS_ALUNOS INTO VRL_ALUNO;
+                EXIT WHEN CRS_ALUNOS%NOTFOUND;
+                DBMS_OUTPUT.PUT_LINE('Aluno: '||VRL_ALUNO.NOME||'
+                - MATRICULA: '||VRL_ALUNO.MATRICULA);
+            END LOOP;
+            CLOSE CRS_ALUNOS;
+            END;
+/            
