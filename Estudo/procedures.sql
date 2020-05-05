@@ -26,3 +26,17 @@ BEGIN
 PROC_SOMA(V_1,V_2,V_T);
 END;
 ---------------------------------------------------------
+-- Cria uma procedure para recuperar o aluno pela matricula.
+CREATE OR REPLACE PROCEDURE PROC_NOME_ALUNO
+    (P_RA IN VARCHAR)
+    IS
+        V_NOME VARCHAR2(50);
+    BEGIN
+        SELECT NOME INTO V_NOME
+    FROM ALUNOS
+        WHERE MATRICULA = P_RA;
+                DBMS_OUTPUT.PUT_LINE(V_NOME);
+        END PROC_NOME_ALUNO;
+    -- executa a procedure.
+    EXEC PROC_NOME_ALUNO(2217202013);
+-------------------------------------------------------------
